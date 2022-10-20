@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block 'title'%} Iniciar Sesión {%endblock%}
+
+{% load crispy_forms_tags %}
+
+{% block 'content'%} 
+    {% load static %}
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        
+        <div class="col">
+            <form action="" method="POST" class="form-group">
+                {% csrf_token%}
+                
+                {{ form|crispy }}
+
+                <button class="btn btn-success" type="submit"> Login </button>
+                <p>¿No tienes una cuenta?: Crea una <a href="{% url 'register'%}">aquí</a>.</p>
+            </form>
+        </div>
+        
+        <div class="col"></div>
+    </div>
+</div>
+
+{%endblock%}
