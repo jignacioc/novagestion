@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{%block 'title'%} Inicio {%endblock%}
+
+{%block 'content'%}
+    {% load static %}
+    
+    <h1 style="text-align: center;">Listado de Programas</h1>
+
+        
+        {% for i in programa %}
+            <div class="programa">
+                {% if user.is_superuser%}
+                <div class="eliminar">
+                    <a href="{% url 'eliminar_programa' %}"><button type="submit" class="btn btn-danger delete">Eliminar</button></a>
+                </div>
+                {% endif %}
+                <p>Nombre Programa: {{ i.nombrePrograma }}</p>
+                <p>Localización programa: {{ i.localizacion_cel }}</p>
+                <p>Duración programa: {{ i.duracion }}</p>
+                <p>Nombre del CEL: {{ i.nombreCEL }}</p>
+                <p>Vacantes: {{ i.vacantes }}</p>
+            </div>
+        {% endfor %}
+
+        
+{% endblock %}

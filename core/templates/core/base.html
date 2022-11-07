@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/151618a8a2.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'core/css/styles.css' %}" />
 </head>
 <body>
@@ -36,12 +39,17 @@
                 <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
               </li>
               {% endif %}
+              {% if user.is_superuser%}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'publicar_programas' %}">Publicar Programa</a>
+              </li>
+              {% endif %}
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                <a class="nav-link" href="{% url 'programas' %}">Programas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Programas</a>
+                <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
               </li>
               {% endif %}
             </ul>

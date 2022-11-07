@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+
+{%block 'title'%} Inicio {%endblock%}
+
+{%block 'content'%}
+    {% load static %}
+    
+        <h1 style="text-align: center;">Publicar un programa</h1>
+        
+        <div class="contenedor">
+            <form action="" method="POST" class="form2">
+                {% csrf_token %}
+            <tr>
+                <th>
+                    <label for="id_nombrePrograma" class="form-label">Nombre del programa:</label>
+                </th>
+                <td>
+                    <input type="text" name="nombrePrograma" maxlength="30" required id="id_nombrePrograma" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="id_localizacion_cel" class="form-label">Localización del CEL:</label>
+                </th>
+                <td>
+                    <input type="text" name="localizacion_cel" maxlength="30" required id="id_localizacion_cel" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="id_duracion" class="form-label">Duración del programa:</label>
+                </th>
+                <td>
+                    <input type="text" name="duracion" maxlength="30" required id="id_duracion" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="id_nombreCEL" class="form-label">Nombre del CEL:</label>
+                </th>
+                <td>
+                    <input type="text" name="nombreCEL" maxlength="30" required id="id_nombreCEL" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="id_vacantes" class="form-label">Número de vacantes disponibles:</label>
+                </th>
+                <td>
+                    <input type="number" name="vacantes" required id="id_vacantes" class="form-control">
+                </td>
+            </tr>
+                
+                <button type="submit" class="btn btn-primary enviar">Guardar Programa.</button>
+            </form>
+        </div>
+{% endblock %}
