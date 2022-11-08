@@ -22,8 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("register/", v.register, name="register"),
     path("programas/", vp.programas, name="programas"),
-    path("publicar_programas/", vp.publicar_programas, name="publicar_programas"),
-    path("eliminar_programa/", vp.eliminar_programa, name="eliminar_programa"),
+    path("publicar_programas", vp.publicar_programas, name="publicar_programas"),
+    path("postular_programa/<int:pk>", vp.postular_programa, name="postular_programa"),
     path('', include('core.urls')),
     path('', include("django.contrib.auth.urls")),
 ]

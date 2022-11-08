@@ -9,3 +9,12 @@ class Programa(models.Model):
     vacantes = models.IntegerField(verbose_name="Número de vacantes disponibles:")
     def __str__(self):
         return self.nombrePrograma
+
+class PostularPrograma(models.Model):
+    id_postulacion = models.AutoField(primary_key=True)
+    id = models.ForeignKey(Programa, on_delete=models.CASCADE, verbose_name="ID del programa: ", null=True, blank=True)
+    nombreAlumno = models.CharField(max_length=70, verbose_name="Nombre del alumno: ")
+    emailAlumno = models.EmailField(max_length=70, verbose_name="Email del alumno: ")
+    motivoPostulacion = models.CharField(max_length=70, verbose_name="Motivo de la postulación: ")
+    def __str__(self):
+        return self.nombreAlumno

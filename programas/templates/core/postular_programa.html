@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{%block 'title'%} Inicio {%endblock%}
+
+{%block 'content'%}
+    {% load static %}
+    
+        <h1 style="text-align: center;">Postular a un programa</h1>
+        
+        <div class="contenedor">
+            <form action="" method="POST" class="form2">
+                {% csrf_token %}
+                <tr>
+                    <th>
+                        <label for="id_nombreAlumno" class="form-label">Nombre del alumno: </label>
+                    </th>
+                    <td>         
+                      <input type="text" name="nombreAlumno" maxlength="70" required id="id_nombreAlumno" class="form-control">      
+                    </td>
+                </tr>  
+                  <tr>
+                    <th>
+                        <label for="id_emailAlumno" class="form-label">Email del alumno: :</label>
+                    </th>
+                    <td>    
+                      <input type="email" name="emailAlumno" maxlength="70" required id="id_emailAlumno" class="form-control">
+                    </td>
+                  </tr>       
+                <tr>
+                    <th>
+                        <label for="id_motivoPostulacion" class="form-label">Motivo de la postulación: :</label></th>
+                    <td>                  
+                      <input type="text" name="motivoPostulacion" maxlength="70" required id="id_motivoPostulacion" class="form-control">
+                    </td>
+                </tr>
+                
+                <button type="submit" class="btn btn-primary enviar">Postular</button>
+            </form>
+        </div>
+{% endblock %}
