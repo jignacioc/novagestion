@@ -13,7 +13,7 @@
         <div class="col">
             <form action="" method="POST" class="form-group">
                 {% csrf_token%}
-                {{ form|crispy }}
+                {{ form|crispy }} <br>
                 <button class="btn btn-success" type="submit"> Register </button>
             </form>
         </div>

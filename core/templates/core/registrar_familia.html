@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+
+{%block 'title'%} Registrar Familia {%endblock%}
+
+{%block 'content'%}
+    {% load static %}
+    <h1 style="text-align: center;">Registro de Familia</h1>
+
+    <div class="contenedor">
+        <form action="" method="POST" class="form2">
+            {% csrf_token %}
+            <tr>
+                <th><label for="id_rutJefeFamilia" class="form-label">Rut Jefe Familia: :</label></th>
+                <td>               
+                  <input type="text" name="rutJefeFamilia" maxlength="9" required id="id_rutJefeFamilia" class="form-control">     
+                </td>
+              </tr>
+              <tr>
+                <th><label for="id_numIntegrantes" class="form-label">N° de integrantes: :</label></th>
+                <td>
+                  <input type="number" name="numIntegrantes" required id="id_numIntegrantes" class="form-control">    
+                </td>
+              </tr>      
+              <tr>
+                <th><label for="id_direccion" class="form-label">Dirección Hogar: :</label></th>
+                <td>           
+                  <input type="text" name="direccion" maxlength="50" required id="id_direccion" class="form-control">             
+                </td>
+              </tr>  
+              <tr>
+                <th><label for="id_antecedentes" class="form-label">Antecedentes:</label></th>
+                <td>            
+                  <input type="file" name="antecedentes" accept="image/*" id="id_antecedentes" class="form-control">
+                </td>
+              </tr>
+            <button type="submit" class="btn btn-primary enviar">Guardar Programa.</button>
+        </form> 
+{% endblock %}
